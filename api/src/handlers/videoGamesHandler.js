@@ -4,16 +4,13 @@ const {getAllGames} = require('../controllers/videoGamesController.js')
 
 const getVideoGamesHandler = async(req, res) => {
     try{
-        if(Object.keys(req.kery).length === 0){
-            const allGames = await getAllGames()
-            res.status(200).json(allGames)
-        }else{
-            const resQuery = await getByQuery(req.query)
-            res.status(200).json(resQuery)
-        }
+        const {name} = req.query
+        const response = await getAllGames(name);
+        res.status(200).json(response);
     }catch (error) {
         res.status(404).json({error: error.message})
     }
+    
 }
 
 module.exports = {
