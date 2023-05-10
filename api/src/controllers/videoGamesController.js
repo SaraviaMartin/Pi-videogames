@@ -29,7 +29,6 @@ const getAllGames = async()=>{
     })
     // traigo los videojuegos de la api
     const formatApiVideogames = [];
-    for (let i = 1; i <= 7; i++){
         let apiResponse = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
         //formato y pusheo al array vacio formatApiVideogames
         apiResponse.data.results.map(games => {
@@ -43,35 +42,29 @@ const getAllGames = async()=>{
                 genres: games.genres.map(g => g.name)
             });
         });
-    };
     // concateno el resultado de la api y la db 
     return [...formatDbVideogames, ...formatApiVideogames];
-
-    // const API = await axios.get('https://api.rawg.io/api/games?key=b068f01f8b7343eead2b6d61c5dde729');
-    // console.log(API.data)
-
-
-    // try{  
-    //     const response = (await axios(`https://api.rawg.io/api/games?api_key=${API_KEY}`)).data;
-    //     const gamesMap = response.map((game) =>{
-    //         return{
-    //             id: game.id,
-    //             name: game.name,
-    //             description: game.description,
-    //             platform: platforms,
-    //             image: game.background_image,
-    //             released: game.released,
-    //             rating: game.rating,
-    //             genre: gamesMap,
-    //             created: false
-    //         }  ;  
-    //     });
-    //     await Videogame.bulkCreate(gamesMap);
-    // }catch(error){
-    //     console.log(error + " <======= ES EN EL LLAMADO A LA API");
-    // }
 }
 
+//traigo los juegos por nombre 
+const getGameByName = async (name) => {
+        const juegos = await getAllGames(name);
+        if(name){
+            const filtrado = juegos.filter((game)=> game.name.toLowerCase().includes(name.toLowerCase()));
+        
+        if(filtrado.length>0){
+            return filtrado;
+        } else {
+            throw new Error('No se encontro el juego con ese nombre')
+        }
+    } else {return Videogame}
+    }
+
+const getVideogames = (name) => {
+    if (!name) return getAllGames();
+    else return getGameByName(name);
+};
+
 module.exports = {
-    getAllGames
+    getVideogames
 };
