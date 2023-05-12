@@ -1,10 +1,9 @@
 import React from "react";
-import HomeContent from '../../components/HomeContent/HomeContent'
 
 const Home = () =>{
     return (
         <div>
-            <HomeContent/>
+           <h1>Este es el home</h1>
         </div>
     )
 }
