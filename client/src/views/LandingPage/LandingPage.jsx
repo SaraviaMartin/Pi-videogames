@@ -5,7 +5,9 @@ const LandingPage = () => {
     return (
         <div>
             <h2>Este es el landing page</h2>
-            <button> <Link to='/home' >Entrar</Link> </button>
+            <Link to='/home' >
+                <button>Entrar</button>
+            </Link>
         </div>
     )
 }
