@@ -1,34 +1,79 @@
-import { 
+import { FETCH_GAMES } from '../actions/actions';
+
+const initialState = {
+  games: [],
+};
+
+export default function gamesReducer(state = initialState, action) {
+  switch (action.type) {
+    case FETCH_GAMES:
+      return {
+        ...state,
+        games: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { 
     // CLEAR_DETAIL,
     // ERROR,
     // FILTER_BY_CREATION,
     // FILTER_BY_GENRE,
-    GET_ALL_GAMES,
+    // GET_ALL_GAMES,
     // GET_ALL_GENRES,
     // GET_GAME_BY_NAME,
     // GET_GAME_DETAIL,
     // ORDER_BY_NAME,
     // ORDER_BY_RATING,
     // POST_NEW_GAME 
-} from "../actions/actions";
+// } from "../actions/actions";
 
-const initialState = {  
-    allGames: [],
+// const initialState = {  
+//     allGames: [],
     // gameDetail: [],
     // genres: [],
     // error: '',
-};
+// };
 
-const rootReducer = (state=initialState, action) => {
-    if (action.type === GET_ALL_GAMES) {
-        return {
-          ...state,
-          allGames: action.payload,
+// const rootReducer = (state=initialState, action) => {
+//     if (action.type === GET_ALL_GAMES) {
+//         return {
+//           ...state,
+//           allGames: action.payload,
           
-        };
-      }
+//         };
+//       }
 
-}
+// }
     
 //         case GET_ALL_GENRES:
 //             return{
@@ -107,4 +152,4 @@ const rootReducer = (state=initialState, action) => {
 // };
   
 
-export default rootReducer;
+// export default rootReducer;
