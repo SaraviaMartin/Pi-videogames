@@ -28,7 +28,7 @@ const Cards = ({currentGames}) => {
                return (<Card
                    key={game.id}
                    id={game.id}
-                   image={game.background_image ? game.background_image : "IMAGEN AQUI"}
+                   image={game.image ? game.image : "IMAGEN AQUI"}
                    name={game.name}
                    genres={game.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
                    rating={game.rating}

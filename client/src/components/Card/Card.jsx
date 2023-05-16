@@ -9,7 +9,7 @@ class Card extends React.Component {
             <div >
                 
                     <h3 >{this.props.name}</h3>
-                    <img className='image' src={this.props.background_image} alt=""/>
+                    <img className='image' src={this.props.image} alt=""/>
                     <p >{this.props.genres}</p>
                     <p >⭐ {this.props.rating}</p>
                  <NavLink to={`/detail/${this.props.id}`}><span>Leer más</span></NavLink >
