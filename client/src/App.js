@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
-import Home from './views/Home/Home';
+import Home from './views/Home/Home'
+import Detail from './components/Detail/Detail';
 import LandingPage from './views/LandingPage/LandingPage';
 import { Route,  BrowserRouter, Switch} from 'react-router-dom';
-import { fetchGames} from './redux/actions/actions';
-// import { getAllGenres } from './redux/actions/actions';
 import { useEffect} from 'react';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 
@@ -23,19 +21,11 @@ function App() {
 
     return (
       <div>
-        <BrowserRouter>
-        <div>
-        <div>
-        <h1>Juegos populares</h1>
-        <ul>
-          {games.map(game => (
-            <li key={game.id}>{game.name}</li>
-          ))}
-        </ul>
-      </div>
+        <BrowserRouter>        <div>
           <Switch>
             <Route exact path='/' render={()=><LandingPage/>}/>
             <Route  path="/home" render={()=><Home/>}/>
+            <Route path='/detail/:id' render={() => <Detail />} />
           </Switch>
         </div>
         </BrowserRouter>               

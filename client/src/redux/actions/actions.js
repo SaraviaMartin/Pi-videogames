@@ -1,64 +1,34 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-export const  FETCH_GAMES = ' FETCH_GAMES';
+export const GET_ALL_GAMES = 'GET_ALL_GAMES';
 
-export const fetchGames = () => {
-    const games = [
-        { id: 1, name: 'Juego 1' },
-        { id: 2, name: 'Juego 2' },
-        { id: 3, name: 'Juego 3' },
-      ];
-      return Promise.resolve(games);
+
+export const getAllGames = () => {
+      try {
+          return async (dispatch) => {
+              const response  = await axios.get('http://localhost:3001/videogames')
+              const data = response.data;
+              
+              return dispatch({
+                  type: GET_ALL_GAMES,
+                  payload: data,
+              })              
+          }
+      } catch (error) {
+          console.log(error);
+      }
+      
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const ERROR = 'ERROR'; 
+export const ERROR = 'ERROR'; 
 // export const GET_ALL_GAMES = 'GET_ALL_GAMES';
 // export const GET_GAME_BY_NAME = 'GET_GAME_BY_NAME';
 // export const FILTER_BY_CREATION = 'FILTER_BY_CREATION';
 // export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 // export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 // export const ORDER_BY_RATING = 'ORDER_BY_RATING';
-// export const GET_GAME_DETAIL = 'GET_GAME_DETAIL';
+export const GET_GAME_DETAIL = 'GET_GAME_DETAIL';
 // export const CLEAR_DETAIL = 'CLEAR_DETAIL';
 // export const GET_ALL_GENRES = 'GET_ALL_GENRES';
 // export const POST_NEW_GAME = 'POST_NEW_GAME';
@@ -127,20 +97,20 @@ export const fetchGames = () => {
 // };
 
 
-// export const getGameDetail = (idVideogame) => {
-//     return async (dispatch) => {
-//         try {
-//             const response = await axios.get(`http://localhost:3001/videogames/${idVideogame}`);
-//             const game = response.data;
-//             return dispatch({ type: GET_GAME_DETAIL, payload: game });
-//         } catch (error) {
-//             return dispatch({
-//                 type: ERROR,
-//                 payload: error.message
-//             });
-//         }
-//     };
-// };
+export const getGameDetail = (id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`http://localhost:3001/videogames/${id}`);
+            const game = response.data;
+            return dispatch({ type: GET_GAME_DETAIL, payload: game });
+        } catch (error) {
+            return dispatch({
+                type: ERROR,
+                payload: error.message
+            });
+        }
+    };
+};
 
 
 // export const clearDetail = () => {

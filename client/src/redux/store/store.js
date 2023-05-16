@@ -1,21 +1,11 @@
-import  { legacy_createStore as createStore,combineReducers, applyMiddleware } from "redux";
-import thunk from 'redux-thunk';
-import gamesReducer from '../reducer/reducer';
-import { fetchGames, FETCH_GAMES } from '../actions/actions';
+import {legacy_createStore as createStore,applyMiddleware,compose} from 'redux';
+import rootReducer from '../reducer/reducer1';
+import thunkMiddleware from 'redux-thunk';
 
+const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||compose;
 
-const rootReducer = combineReducers({
-    games: gamesReducer,
-  });
-  
-  const fetchGamesData = () => dispatch => {
-    fetchGames()
-      .then(games => dispatch({ type: FETCH_GAMES, payload: games }));
-  };
-  
-  const store = createStore(rootReducer, applyMiddleware(thunk));
-  
-  store.dispatch(fetchGamesData());
-  
-  export default store;
-
+const store = createStore(
+    rootReducer,
+    composeEnchancer(applyMiddleware(thunkMiddleware))
+)
+export default store;
