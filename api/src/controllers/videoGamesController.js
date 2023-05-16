@@ -21,7 +21,7 @@ const getAllGames = async()=>{
             name: games.name,
             description: games.description,
             platform: games.platform,
-            background_image: games.background_image,
+            image: games.background_image,
             released: games.released,
             rating: games.rating,
             genres: games.genres.map(genre => genre.name)
