@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './views/Home/Home'
-import Detail from './components/Detail/Detail';
+import Detail from './components/Detail/Details';
 import LandingPage from './views/LandingPage/LandingPage';
 import { Route,  BrowserRouter, Switch} from 'react-router-dom';
 import { useEffect} from 'react';

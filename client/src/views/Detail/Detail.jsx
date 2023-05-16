@@ -1,9 +1,9 @@
-import Details from "../../components/Detail/Detail"
+import Detail from "../../components/Detail/Details"
 
 const Detail = () => {
     return (
         <div>
-            <Details />
+            <Detail />
         </div>
     )
 }

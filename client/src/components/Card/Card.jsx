@@ -6,11 +6,10 @@ class Card extends React.Component {
 
     render() {
         return (
-            <div >
-                
-                    <h3 >{this.props.name}</h3>
+            <div className='cardContainer'>              
+                    <h3 className='h1Name'>{this.props.name}</h3>
                     <img className='image' src={this.props.image} alt=""/>
-                    <p >{this.props.genres}</p>
+                    <p className='genres'>{this.props.genres}</p>
                     <p >⭐ {this.props.rating}</p>
                  <NavLink to={`/detail/${this.props.id}`}><span>Leer más</span></NavLink >
              

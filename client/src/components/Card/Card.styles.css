@@ -5,3 +5,38 @@
     border: 1px solid black;
     border-radius: 15px;
 }
+.cardContainer{
+    width: 20vw;
+    border-radius: 20px;
+    border-radius: 30px;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.25s;  
+    background: linear-gradient(rgba(255, 255, 255, 0.473), rgba(150, 150, 150, 0.25));
+}
+.h1Name{
+    background-color: rgb(238, 23, 130, 0.7);
+
+}
+
+.genres{
+    background-color: rgb(238, 23, 130, 0.7);
+    color: aliceblue;
+    font-weight: bold;
+}
+.UserRating{
+    background-color: rgb(238, 23, 130, 0.7);
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.rating{
+    background-color: rgb(238, 23, 130, 0.7);
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.ratingImg{
+    width: 1vw;
+}
