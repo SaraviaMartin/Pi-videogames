@@ -1,68 +1,41 @@
-import { getAllGames, filterByCreation, orderByName, orderByRating, filterByGenre } from "../../redux/actions/actions";
+import { getAllGenres } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from "react";
 
-const FilterButtons = () => {
+const FilterButtons = ({handleFilter, handleSort, handleSource}) => {
 
     const dispatch = useDispatch();
+    const generos = useSelector(state => state.genres)// el useSelector lee un valor del estado del store(reducer) y se suscribe a las actualizaciones del mismo.
+    //console.log(generos.genres)
+    useEffect(() => { //
+        dispatch(getAllGenres())
+    }, [dispatch])
 
-    const genres = useSelector(state => state.genres);
-
-    // action para filtrar por generos
-    const filterByGenres = (event) => {
-        dispatch(filterByGenre(event.target.value));
-    };
-    // action para ordenar por rating
-    const gameOrderRating = (event) => {
-        dispatch(orderByRating(event.target.value));
-    };
-    // action para ordenar alfabeticamente
-    const gamesOrderAlphabetic = (event) => {
-        dispatch(orderByName(event.target.value));
-    };
-    // functiones de api o db
-    const filterByOrigin = (event) => {
-        dispatch(filterByCreation(event.target.value));
-    };
-
+    
     return (
-        <div >
-            <div>
-                <select  onChange={filterByGenres}>
-                    <option select disabled selected={true}>Genres</option>
-                    {
-                        genres.map(genre => {
-                            return <option key={genre} value={genre}>{genre}</option>
-                        })
-                    }
+            <div >
+                    <select onChange={e => handleSort(e)}>
+                        <option value="" >Ordenar por...</option>
+                        <option value="A-Z" >A-Z</option>
+                        <option value="Z-A" >Z-A</option>
+                        <option value="Rating Asc">Rating Asc</option>
+                        <option value="Rating Des">Rating Desc</option>
+                    </select>
+
+                    <select id="genre" onChange={e => handleFilter(e)}>
+                         <option value=''>Generos</option>
+                        {generos.genres && generos.genres.length > 0 ? generos.genres.map(g => (
+                            <option key={g.id} value={g.name}>{g.name}</option> 
+                        )) : <option>Error cargar géneros</option>}
+                    </select>
+
+                    <select onChange={e => handleSource(e)}>
+                        <option value=''>Filtrar por Origen</option>
+                        <option value="API">API</option>
+                        <option value="CREADO">Creados</option>
+                    </select>
                     
-                </select>
             </div>
-            <div>
-                <select onChange={filterByOrigin}>
-                    <option select disabled selected={true}>Origin</option>
-                    <option value="ALL">All games</option>
-                    <option value="API">API</option>
-                    <option value="DB">DataBase</option>
-                </select>
-            </div>
-            <div>
-                <button  onClick={() => dispatch(getAllGames())}>Restart</button>
-            </div>
-            <div>
-                <select  onChange={gameOrderRating}>
-                    <option select disabled selected={true}>Rating</option>
-                    <option value="Ascendente">Ascendant</option>
-                    <option value="Descendente">Descendant</option>
-                </select>
-            </div>
-            <div>
-                <select onChange={gamesOrderAlphabetic}>
-                    <option select disabled selected={true}>A/Z</option>
-                    <option value="Ascendente">Descendant</option>
-                    <option value="Descendente">Ascendant</option>
-                </select>
-            </div>
-        </div>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { useState } from "react";
-import { getAllGames } from "../../redux/actions/actions";
+import { getAllGames, getAllGenres, filterByCreation, orderByRating } from "../../redux/actions/actions";
 import Cards from "../../components/Cards/Cards";
 import Navbar from "../../components/Navbar/Navbar"
 import Pagination from "../../components/Pagination/Pagination";
@@ -27,6 +27,7 @@ const Home = () =>{
    React.useEffect(()=>{
       window.scrollTo(0, 0);
    }, [currentPage])
+
 
 
 
