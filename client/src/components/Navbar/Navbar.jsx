@@ -11,6 +11,7 @@ const Navbar =({setCurrentPage}) =>{
   const [state, setState]=useState('');
   const dispatch= useDispatch();
 
+  
   const handleChange=(e)=>{
     e.preventDefault()
     setState(e.target.value)
@@ -31,7 +32,7 @@ const Navbar =({setCurrentPage}) =>{
         <input className="input"  value={state} type="text" onChange={(e)=>handleChange(e)} placeholder="Buscar por nombre"/>
         <button className="buttons " type="submit" onClick={(e)=>handleSubmit(e, setCurrentPage)}>Buscar</button>
         <FilterButtons/>
-        <span className="buttons "><Link to={'/create'} > Crear Juego !</Link></span>
+        <span className="crear"><Link to={'/create'} > Crear Juego !</Link></span>
       </form>
     </div>
     

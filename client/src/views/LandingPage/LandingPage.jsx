@@ -4,12 +4,15 @@ import "./Landing.styles.css"
 
 const LandingPage = () => {
     return (
-        <div className="landing-container">
-            <h2>Este es el landing page</h2>
+        <div className="background">
+            <div className="containerCentral">
+            <h2 className="titulo">Este es el landing page</h2>
             <Link to='/home' >
-                <button>Entrar</button>
+                <button className="boton">Entrar</button>
             </Link>
         </div>
+        </div>
+        
     )
 }
 

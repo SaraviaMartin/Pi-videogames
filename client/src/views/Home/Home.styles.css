@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-left: 50%;
-    margin-right: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(54, 52, 52);
 }
 
 .containerCard{

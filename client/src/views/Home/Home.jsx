@@ -28,36 +28,6 @@ const Home = () =>{
       window.scrollTo(0, 0);
    }, [currentPage])
 
-//    function handleSort(e){
-//       e.preventDefault()
-//       if(e.target.value===""){
-//          dispatch(getAllGames())
-//       }else {
-//          dispatch(orderBy(e.target.value))
-//          setCurrentPage(1)
-//       }
-//    }
-
-//    function handleFilter(e){
-//       e.preventDefault()
-//       if(e.target.value===""){
-//          dispatch(getAllGames())
-//       }else {
-//          dispatch(filterByGenres(e.target.value))
-//          setCurrentPage(1)
-//    }
-// }
-
-//    function handleSource(e){
-//       e.preventDefault()
-//       if(e.target.value===""){
-//          dispatch(getAllGames())
-//       }else{
-//          dispatch(filterBySource(e.target.value))
-//          setCurrentPage(1)
-//       }
-//    }
-
 
 
     return (
