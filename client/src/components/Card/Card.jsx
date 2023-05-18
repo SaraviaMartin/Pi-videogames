@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom' //componenete de react router dom
 import React from 'react';
 import "./Card.styles.css"
 
+
 class Card extends React.Component {
 
     render() {
