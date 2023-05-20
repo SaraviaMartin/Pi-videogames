@@ -5,7 +5,6 @@ import { getAllGames, getAllGenres, filterByCreation, orderByRating } from "../.
 import Cards from "../../components/Cards/Cards";
 import Navbar from "../../components/Navbar/Navbar"
 import Pagination from "../../components/Pagination/Pagination";
-import FilterButtons from "../../components/FilterButtons/FilterButtons";
 import "./Home.styles.css"
 
 
