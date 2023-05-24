@@ -131,18 +131,32 @@ export const filterByCreation = (creation) => {
 };
 
 
-export const filterByGenre = (genre) => {
-    return { type: FILTER_BY_GENRE, payload: genre };
+export const filterByGenre = (array) => {
+    return async function (dispatch) {
+    dispatch({
+      type: FILTER_BY_GENRE,
+      payload: array,
+    });
+  };
 };
 
 
-export const orderByName = (orderName) => {
-    return { type: ORDER_BY_NAME, payload: orderName };
+export const orderByName = (order) => {
+    return async function (dispatch) {
+        dispatch({
+          type: ORDER_BY_NAME,
+          payload: order,
+        });
+      };
 };
 
 
 
-export const orderByRating = (orderRating) => {
-
-    return { type: ORDER_BY_RATING, payload: orderRating };
+export const orderByRating = (array) => {
+    return async function (dispatch) {
+        dispatch({
+          type: ORDER_BY_RATING,
+          payload: array,
+        });
+      };
 };
