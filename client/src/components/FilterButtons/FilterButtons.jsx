@@ -8,7 +8,7 @@ const FilterButtons = ({ handleFilter, handleSort, handleSource }) => {
 
   useEffect(() => {
     dispatch(getAllGenres());
-  }, [dispatch]);
+}, [dispatch]);
 
   return (
     <div>
@@ -24,7 +24,7 @@ const FilterButtons = ({ handleFilter, handleSort, handleSource }) => {
         <option value="">Generos</option>
         {generos.genres && generos.genres.length > 0 ? (
           generos.genres.map((g) => (
-            <option key={g.id} value={g.name}>
+            <option className='option' key={g.id} value={g.name}>
               {g.name}
             </option>
           ))
