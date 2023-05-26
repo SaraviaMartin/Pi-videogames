@@ -5,7 +5,7 @@ import { getGameByName, getAllGames, filterByCreation, orderByRating } from '../
 import { Link } from 'react-router-dom';
 import './Navbar.styles.css';
 
-const Navbar = ({ setCurrentPage }) => {
+const Navbar = () => {
   const [state, setState] = useState('');
   const dispatch = useDispatch();
 

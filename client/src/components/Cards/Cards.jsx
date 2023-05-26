@@ -22,7 +22,7 @@ const Cards = ({currentGames}) => {
    }
 
    return (
-       <digame className="containerCard">
+       <div className="containerCard">
            {currentGames.length > 0 ?
            currentGames?.map(game => {
                return (<Card
@@ -34,7 +34,7 @@ const Cards = ({currentGames}) => {
                    rating={game.rating}
                    />)}) : errorCarga}
 
-       </digame>
+       </div>
    )
  }
  

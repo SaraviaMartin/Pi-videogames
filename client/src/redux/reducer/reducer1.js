@@ -21,6 +21,7 @@ const initialState = {
     gameDetail: [],
     genres: [],
     error: '',
+    plataforms: []
 }
 
 
